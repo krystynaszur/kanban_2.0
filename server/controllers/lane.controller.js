@@ -40,5 +40,22 @@ export function deleteLane(req, res) {
     lane.remove(() => {
       res.status(200).end();
     });
-});
+  });
+}
+
+
+export function editLaneName(req, res) {
+  Lane.findOne({ id: req.params.laneId }).exec((err, lane) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    lane.update({ id: req.params.laneId },
+    {
+       "name": req.params.name,
+      
+    }, function (err, lane) {
+      if (err) return next(err);
+      res.json(lane);
+    });
+  });
 }
