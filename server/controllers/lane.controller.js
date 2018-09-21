@@ -37,7 +37,14 @@ export function deleteLane(req, res) {
     if (err) {
       res.status(500).send(err);
     }
+
     lane.remove(() => {
+      console.log(lane.notes);
+      var notesForRemoval = lane.notes;
+      console.log(notesForRemoval);
+      for (var i = 0; i < notesForRemoval.length; i++) {
+        notesForRemoval[i].remove()
+      };
       res.status(200).end();
     });
   });
@@ -45,17 +52,10 @@ export function deleteLane(req, res) {
 
 
 export function editLaneName(req, res) {
-  Lane.findOne({ id: req.params.laneId }).exec((err, lane) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    lane.update({ id: req.params.laneId },
-    {
-       "name": req.params.name,
-      
-    }, function (err, lane) {
-      if (err) return next(err);
-      res.json(lane);
-    });
+  Lane.findOneAndUpdate({ id: req.params.laneId }, { name: req.body.name }, { new: true }, function (err, lane) {
+    if (err)
+      res.send(err);
+    res.json(lane);
   });
+
 }
