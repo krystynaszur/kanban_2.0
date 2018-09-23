@@ -1,1 +1,28 @@
 /* Lane styles */
+.addLane {
+    color: blue;
+    width: 100px;
+    height: 50px;
+}
+
+.Lane {
+    border: 1px solid yellow;
+    width: 200px;
+}
+
+.LaneHeader {
+    border: 1px solid red;
+}
+
+.LaneAddNote {
+    border: 1px solid green;
+}
+.LaneName {
+    border: 1px solid pink;
+    background-color: grey;
+}
+
+.LaneDelete {
+    background-color: red;
+    color: green;
+}
