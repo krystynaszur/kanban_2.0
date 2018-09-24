@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Lanes from '../Lane/Lanes';
 import styles from '../Lane/Lane.css';
-import { createLane } from '../Lane/LaneActions';
+import { createLaneRequest, fetchLanes } from '../Lane/LaneActions';
 
 
 const Kanban = (props) => (
@@ -13,23 +13,25 @@ const Kanban = (props) => (
       onClick={() => props.createLane({
         name: 'New lane',
       })} >Add lane</button>
-    <Lanes lanes={props.lanes} />
+  <Lanes lanes={props.lanes} /> 
   </div>
 );
 
-//Kanban.need = [() => { return fetchLanes(); }];
+Kanban.need = [() => { return fetchLanes(); }];
 
 const mapStateToProps = state => ({
-  lanes: state.lanes,
+  lanes: Object.values(state.lanes)
 });
 
 Kanban.propTypes = {
-  lanes: PropTypes.array,
-  createLane: PropTypes.func,
+//  lanes: PropTypes.array,
+ // createLane: PropTypes.func,
 };
 
 const mapDispatchToProps = {
-  createLane,
+ // ...laneActions,
+  //addNote: createNote,
+  createLane: createLaneRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Kanban);
