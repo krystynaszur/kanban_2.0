@@ -35,7 +35,7 @@ export function deleteNote(noteId, laneId) {
 export function editNote(noteId) {
     return {
         type: EDIT_NOTE,
-        noteId,
+        noteId
     };
 }
 
@@ -50,5 +50,14 @@ export function createNoteRequest(note, laneId) {
   export function deleteNoteRequest(noteId, laneId) {
     return (dispatch) => {
       return callApi(`notes/${noteId}`, 'delete').then(dispatch(deleteNote(noteId, laneId)));
+    };
+  }
+
+  export function updateNoteRequest(note) {
+    return (dispatch) => {
+        console.log(note);
+      return callApi(`notes/${note.id}`, 'post', { note }).then(noteResp => {
+        dispatch(updateNote(note));
+      });
     };
   }

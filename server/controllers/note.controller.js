@@ -45,7 +45,8 @@ export function deleteNote(req, res) {
   });
 }
 
-export function editNoteContent(req, res) {
+export function updateNote(req, res) {
+  console.log("Kontroller notes");
   Note.findOneAndUpdate({ id: req.params.noteId }, { task: req.body.task }, { new: true }, function (err, note) {
     if (err)
       res.send(err);

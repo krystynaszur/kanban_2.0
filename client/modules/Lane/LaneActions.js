@@ -40,7 +40,7 @@ export function deleteLane(laneId) {
 export function editLane(laneId) {
     return {
         type: EDIT_LANE,
-        laneId
+        laneId,
     };
 }
 

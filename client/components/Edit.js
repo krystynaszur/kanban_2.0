@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component} from 'react';
+import PropTypes from 'prop-types';
 import styles from './Edit.css';
 
 export default class Edit extends Component {
@@ -19,7 +20,7 @@ export default class Edit extends Component {
   }
   renderValue = () => {
     const { value, onDelete, onValueClick } = this.props;
-
+console.log(value);
     return (
       <div>
         <span className={styles.value} onClick={onValueClick}>{value}</span>
@@ -39,6 +40,7 @@ export default class Edit extends Component {
       );
   }
   render() {
+    console.log ("Value of editing" + this.props.editing)
     return (
         <div className={this.props.className}>
           {this.props.editing ? this.renderEdit() : this.renderValue()}
@@ -48,9 +50,9 @@ export default class Edit extends Component {
 }
 
 Edit.propTypes = {
-  //value: PropTypes.string,
- // onUpdate: PropTypes.func,
- // onValueClick: PropTypes.func,
- // onDelete: PropTypes.func,
- // editing: PropTypes.bool,
+ // value: PropTypes.string,
+ //onUpdate: PropTypes.func,
+ onValueClick: PropTypes.func,
+onDelete: PropTypes.func,
+ editing: PropTypes.bool,
 };

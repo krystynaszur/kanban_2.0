@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-//import PropTypes from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -12,7 +12,7 @@ const Note = props =>
 
 
 Note.propTypes = {
-  //children: PropTypes.any,
+  children: PropTypes.any,
 };
 
 export default Note;

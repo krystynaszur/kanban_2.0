@@ -13,7 +13,9 @@ export default function notes(state = initialState, action) {
       return { ...state, [action.note.id]: action.note };
 
     case EDIT_NOTE: {
+      console.log("reducer działa dla editnote");
       const note = { ...state[action.id], editing: true };
+      console.log("Wartość note editing to: " + note.editing);
       return { ...state, [action.id]: note };
     }
 
@@ -22,7 +24,7 @@ export default function notes(state = initialState, action) {
 
     case CREATE_NOTES:
       return { ...action.notes };
-
+      
     default:
       return state;
   }

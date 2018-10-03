@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-//import PropTypes from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import NotesContainer from '../Note/NotesContainer';
@@ -40,11 +40,11 @@ const Lane = (props) => {
 
 
 Lane.propTypes = {
-/* lane: PropTypes.object,
+lane: PropTypes.object,
  laneNotes: PropTypes.array,
  addNote: PropTypes.func,
  updateLane: PropTypes.func,
- deleteLane: PropTypes.func,*/
+ deleteLane: PropTypes.func
 };
 
 export default Lane;

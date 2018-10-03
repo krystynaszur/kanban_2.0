@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Note from './Note';
 import styles from './Notes.css';
 import Edit from '../../components/Edit';
 
-const Notes = ({ notes, laneId, editNote, updateNote, deleteNoteRequest }) => {
-  console.log(notes);
+const Notes = ({ notes, laneId, editNote, updateNote, deleteNote }) => {
     return (<ul className={styles.Notes}>{notes.map((note) =>
         <Note
         id={note.id}
@@ -15,7 +15,7 @@ const Notes = ({ notes, laneId, editNote, updateNote, deleteNoteRequest }) => {
           editing={note.editing}
           value={note.task}
           onValueClick={() => editNote(note.id)}
-          onUpdate={(task) => updateNote({
+          onUpdate={(task) => updateNote( {
               ...note,
               task,
               editing: false,
@@ -27,12 +27,14 @@ const Notes = ({ notes, laneId, editNote, updateNote, deleteNoteRequest }) => {
       )}</ul>);
 };
 
-Notes.propTypes = {
+Notes.propTypes = { deleteNote: PropTypes.func, updateNote: PropTypes.func, laneId: PropTypes.string, editNote: PropTypes.func, notes: PropTypes.array, };
+
+/*Notes.propTypes = {
    // deleteNote: PropTypes.func,
   //  updateNote: PropTypes.func,
    // laneId: PropTypes.string,
   //  editNote: PropTypes.func,
 //  notes: PropTypes.array,
-};
+};*/
 
 export default Notes;
