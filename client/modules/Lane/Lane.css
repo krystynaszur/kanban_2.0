@@ -60,6 +60,7 @@ button {
 .LaneName {
     padding: 20px;
     font-size: 1.5rem;
+    color: black;
 }
 
 .LaneDelete button {
