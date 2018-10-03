@@ -14,9 +14,10 @@ export default function notes(state = initialState, action) {
 
     case EDIT_NOTE: {
       console.log("reducer działa dla editnote");
-      const note = { ...state[action.id], editing: true };
+      console.log ("action.id:" + action.noteId);
+      const note = { ...state[action.noteId], editing: true };
       console.log("Wartość note editing to: " + note.editing);
-      return { ...state, [action.id]: note };
+      return { ...state, [action.noteId]: note };
     }
 
     case DELETE_NOTE:

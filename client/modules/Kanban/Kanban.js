@@ -20,6 +20,7 @@ Kanban.need = [() => { return fetchLanes(); }];
 
 const mapStateToProps = state => ({
   lanes: Object.values(state.lanes)
+ 
 });
 
 Kanban.propTypes = {

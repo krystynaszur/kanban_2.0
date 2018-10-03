@@ -51,7 +51,7 @@ console.log(value);
 
 Edit.propTypes = {
  // value: PropTypes.string,
- //onUpdate: PropTypes.func,
+ onUpdate: PropTypes.func,
  onValueClick: PropTypes.func,
 onDelete: PropTypes.func,
  editing: PropTypes.bool,

@@ -84,7 +84,8 @@ export function fetchLanes() {
   }
 
   
-  export function updateLaneNameRequest(lane) {
+  export function updateLaneRequest(lane) {
+    console.log("Update Lane REquest!!!")
     return (dispatch) => {
       return callApi(`lanes/${lane.id}`, 'put', lane).then(res => {
         dispatch(updateLane(res));
