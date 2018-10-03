@@ -62,7 +62,11 @@ export function createNoteRequest(note, laneId) {
     };
   }
 
+ 
+
   export function moveWithinLane(laneId, targetId, sourceId) {
+    console.log(laneId);
+
     return {
       type: MOVE_WITHIN_LANE,
       laneId,
@@ -70,3 +74,15 @@ export function createNoteRequest(note, laneId) {
       sourceId,
     };
    }
+
+   /*
+  export function moveWithinLane(laneId, targetId, sourceId) {
+    console.log(laneId);
+
+    return {
+      type: MOVE_WITHIN_LANE,
+      laneId,
+      targetId,
+      sourceId,
+    };
+   }*/

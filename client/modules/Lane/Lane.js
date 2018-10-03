@@ -8,8 +8,12 @@ import Edit from '../../components/Edit';
 import styles from './Lane.css';
 
 class Lane extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
   render() {
-    const { connectDropTarget, lane, laneNotes, updateLane, addNote, deleteLane, editLane } = props;
+    const { connectDropTarget, lane, laneNotes, updateLane, addNote, deleteLane, editLane } = this.props;
     const laneId = lane.id;
 
     return connectDropTarget(

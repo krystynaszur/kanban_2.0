@@ -8,6 +8,7 @@ import omit from 'lodash/omit';
 const initialState = [];
 
 function moveNotes(array, sourceNoteId, targetNoteId) {
+  console.log(array);
   const sourceIndex = array.indexOf(sourceNoteId);
   const targetIndex = array.indexOf(targetNoteId);
   const arrayCopy = [...array];
@@ -64,7 +65,7 @@ export default function lanes(state = initialState, action) {
     
       return { ...state, [action.targetLaneId]: targetLane, [action.sourceLaneId]: sourceLane };
     }
-    
+
     default:
       return state;
   }
