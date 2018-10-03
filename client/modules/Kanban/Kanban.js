@@ -5,9 +5,10 @@ import Lanes from '../Lane/Lanes';
 import styles from '../Lane/Lane.css';
 import { createLaneRequest, fetchLanes } from '../Lane/LaneActions';
 
+import callApi from '../../util/apiCaller';
 
 const Kanban = (props) => (
-  <div>
+  <div className={styles.kanban}>
     <button className={styles.addLane}
       onClick={() => props.createLane({
         name: 'New lane',
@@ -26,6 +27,7 @@ const mapStateToProps = state => ({
 Kanban.propTypes = {
   lanes: PropTypes.array,
   createLane: PropTypes.func,
+  fetchLanes: PropTypes.func,
 };
 
 const mapDispatchToProps = {

@@ -1,28 +1,67 @@
 /* Lane styles */
+.kanban {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    background-color: grey;
+    height: 100%;
+}
+
+button {
+    color: white;
+    border-radius: 15px;
+    border: none;
+}
 .addLane {
-    color: blue;
+    background-color: #4834d4;
+    font-size: 1.5rem;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    margin: 20px;
+    text-align: center;
+}
+
+.Lanes {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Lane {
+    background-color: #f0932b;
+    margin: 1%;
+    width: 30%;
+    min-height: 300px;
+    float: left;
+}
+
+.LaneHeader {
+   background-color: white;
+   margin: 0 auto;
+   text-align: center;
+   padding: 10px;
+   box-sizing: border-box;
+}
+
+.LaneAddNote button,
+.LaneDelete button {
+    padding: 10px;
     width: 100px;
     height: 50px;
 }
 
-.Lane {
-    border: 1px solid yellow;
-    width: 200px;
-}
-
-.LaneHeader {
-    border: 1px solid red;
-}
-
-.LaneAddNote {
-    border: 1px solid green;
+.LaneAddNote button {
+   background-color: #6ab04c;
 }
 .LaneName {
-    border: 1px solid pink;
-    background-color: grey;
+    padding: 20px;
+    font-size: 1.5rem;
 }
 
-.LaneDelete {
+.LaneDelete button {
     background-color: red;
-    color: green;
 }

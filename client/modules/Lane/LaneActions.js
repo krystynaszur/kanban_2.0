@@ -45,6 +45,7 @@ export function editLane(laneId) {
 }
 
 export function fetchLanes() {
+  console.log("Funkcja fetchlanes działa");
     return (dispatch) => {
         return callApi('lanes').then(res => {
           const normalized = normalize(res.lanes, lanes);
@@ -85,9 +86,9 @@ export function fetchLanes() {
 
   
   export function updateLaneRequest(lane) {
-    console.log("Update Lane REquest!!!")
+    console.log("Update Lane Request!!!")
     return (dispatch) => {
-      return callApi(`lanes/${lane.id}`, 'put', lane).then(res => {
+      return callApi(`lanes/${lane.id}`, 'post', lane).then(res => {
         dispatch(updateLane(res));
       });
     };
