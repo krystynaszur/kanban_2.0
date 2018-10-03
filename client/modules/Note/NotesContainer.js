@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Notes from './Notes';
-import {deleteNoteRequest, editNote, updateNoteRequest} from '../Note/NoteActions';
+import {deleteNoteRequest, editNote, updateNoteRequest, moveWithinLane } from '../Note/NoteActions';
 
 /*const mapDispatchToProps = {
   onValueClick: editNote,
@@ -9,7 +9,7 @@ import {deleteNoteRequest, editNote, updateNoteRequest} from '../Note/NoteAction
 };
 
 :*/ 
-const mapDispatchToProps = { editNote, updateNote: updateNoteRequest, deleteNote: deleteNoteRequest, };
+const mapDispatchToProps = {  moveWithinLane, editNote, updateNote: updateNoteRequest, deleteNote: deleteNoteRequest, };
 /*
 const mapDispatchToProps = { 
   editNote,

@@ -10,8 +10,7 @@ export const DELETE_LANE = 'DELETE_LANE';
 export const EDIT_LANE = 'EDIT_LANE';
 export const CREATE_LANES = 'CREATE_LANES';
 export const CREATE_NOTES = 'CREATE_NOTES';
-
-// Export Actions
+export const MOVE_BETWEEN_LANES = 'MOVE_BETWEEN_LANES';
 
 export function createLane(lane) {
     return {
@@ -48,6 +47,7 @@ export function fetchLanes() {
   console.log("Funkcja fetchlanes działa");
     return (dispatch) => {
         return callApi('lanes').then(res => {
+          console.log("Funkcja fetchlanes działa");
           const normalized = normalize(res.lanes, lanes);
           const {lanes: normalizedLanes, notes} = normalized.entities;
           dispatch(createLanes(normalizedLanes));
@@ -91,5 +91,14 @@ export function fetchLanes() {
       return callApi(`lanes/${lane.id}`, 'post', lane).then(res => {
         dispatch(updateLane(res));
       });
+    };
+  }
+
+  export function moveBetweenLanes(targetLaneId, noteId, sourceLaneId) {
+    return {
+      type: MOVE_BETWEEN_LANES,
+      targetLaneId,
+      noteId,
+      sourceLaneId,
     };
   }
