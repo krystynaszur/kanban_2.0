@@ -18,7 +18,7 @@ const mapDispatchToProps = {
   addNote: createNoteRequest,
   deleteLane: deleteLaneRequest,
   editLane,
-  updateLane: updateLaneRequest, 
+  updateLane: updateLaneRequest,
   moveBetweenLanes,
 };
 
@@ -28,20 +28,32 @@ const mapDispatchToProps = {
   addNote: createNoteRequest,
   deleteLane: deleteLaneRequest,
   };*/
-  const noteTarget = {
-    hover(targetProps, monitor) {
-      const sourceProps = monitor.getItem();
-      const { id: noteId, laneId: sourceLaneId } = sourceProps;
-   
-      if (!targetProps.lane.notes.length) {
-        targetProps.moveBetweenLanes(
-          targetProps.lane.id,
-          noteId,
-          sourceLaneId,
-        );
-      }
-    },
-   };
+const noteTarget = {
+  /*hover(targetProps, monitor) {
+    const sourceProps = monitor.getItem();
+    const { id: noteId, laneId: sourceLaneId } = sourceProps;
+
+    if (!targetProps.lane.notes.length) {
+      targetProps.moveBetweenLanes(
+        targetProps.lane.id,
+        noteId,
+        sourceLaneId,
+      );
+    }
+  },*/
+  drop(targetProps, monitor) {
+    const sourceProps = monitor.getItem();
+    const { id: noteId, laneId: sourceLaneId } = sourceProps;
+
+    //if (!targetProps.lane.notes.length) {
+      targetProps.moveBetweenLanes(
+        targetProps.lane.id,
+        noteId,
+        sourceLaneId,
+      );
+    }
+ // },
+};
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
