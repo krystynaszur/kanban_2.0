@@ -59,3 +59,13 @@ export function editLaneName(req, res) {
   });
 
 }
+/*
+
+export function editLaneNotes(req, res) {
+  Lane.findOneAndUpdate({ id: req.params.laneId }, { notes: req.body.notes }, { new: true }, function (err, lane) {
+    if (err)
+      res.send(err);
+    res.json(lane);
+  });
+
+}*/

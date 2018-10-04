@@ -3,6 +3,8 @@ import callApi from '../../util/apiCaller';
 import { lanes } from '../../util/schema';
 import { normalize } from 'normalizr';
 
+    import { moveWithinLane} from '../Note/NoteActions';
+
 // Export Constants
 export const CREATE_LANE = 'CREATE_LANE';
 export const UPDATE_LANE = 'UPDATE_LANE';
@@ -86,7 +88,6 @@ export function fetchLanes() {
 
   
   export function updateLaneRequest(lane) {
-    console.log("Update Lane Request!!!")
     return (dispatch) => {
       return callApi(`lanes/${lane.id}`, 'post', lane).then(res => {
         dispatch(updateLane(res));
@@ -102,3 +103,9 @@ export function fetchLanes() {
       sourceLaneId,
     };
   }
+
+/*  export function updateLaneNotesRequest(laneId, targetId, sourceId) {
+    return (dispatch) => {
+      return callApi(`lanes/${laneId}`, 'put', {targetId, sourceId}).then(dispatch(moveWithinLane(laneId, targetId, sourceId)));
+    };
+  }*/

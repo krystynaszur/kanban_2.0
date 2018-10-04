@@ -58,19 +58,20 @@ const noteSource = {
 const noteTarget = {
   hover(targetProps, monitor) {
     const sourceProps = monitor.getItem();
-console.log("Target props id: "+ targetProps.id);
-console.log("Target props laneId: "+ targetProps.laneId);
+    console.log("Target props: " + targetProps);
+    console.log("Target props id: " + targetProps.id);
+    console.log("Target props laneId: " + targetProps.laneId);
     if (targetProps.id !== sourceProps.id) {
       targetProps.moveWithinLane(targetProps.laneId, targetProps.id, sourceProps.id);
     }
   },
-/*
-  drop(targetProps, monitor) {
-    const sourceProps = monitor.getItem();
-    console.log(sourceProps.id);
-    targetProps.moveWithinLane(targetProps.laneId, targetProps.id, sourceProps.id);
-    return { moved: true };
-  }*/
+  /*
+    drop(targetProps, monitor) {
+      const sourceProps = monitor.getItem();
+      console.log(sourceProps.id);
+      targetProps.moveWithinLane(targetProps.laneId, targetProps.id, sourceProps.id);
+      return { moved: true };
+    }*/
 };
 
 Note.propTypes = {
